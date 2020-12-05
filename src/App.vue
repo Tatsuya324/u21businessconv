@@ -2,17 +2,39 @@
   <div id="all_bg_frame">
     <span id="title">FABINESS</span>
     <div id="column_frame">
-      <InputTextArea />
+      <InputTextArea ref="inputtext" @GetText="targetText = $event" />
+      <div id="convert_btn" @click="reload_sentence">
+        <span id="conv_text">校正</span>
+      </div>
+      <Preview :result_sentence="gramarData" />
     </div>
   </div>
 </template>
 
 <script>
 import InputTextArea from "./components/InputTextArea";
+import Preview from "./components/Preview";
+
 export default {
   name: "App",
   components: {
-    InputTextArea
+    InputTextArea,
+    Preview
+  },
+  data() {
+    return {
+      targetText: "",
+      gramarData: ""
+    };
+  },
+  methods: {
+    reload_sentence() {
+      // 子コンポーネントから入力された情報を親コンポーネントに格納
+      this.$refs.inputtext.transInputValue();
+      // ここから文章校正の処理を記述していく
+      
+      this.gramarData = this.targetText;
+    }
   }
 };
 </script>
@@ -191,7 +213,7 @@ button {
       height: 10%;
       padding: 10px 0 10px 0;
       font-size: 50px;
-      font-weight: 500;
+      font-weight: 900;
       color: #ffffff;
       display: flex;
       align-items: center;
@@ -199,15 +221,37 @@ button {
     }
     #column_frame {
       height: 90%;
+      width: 90%;
       padding: 10px;
       margin-bottom: 20px;
-      border: solid #313d4f 3px;
-      border-radius: 10px;
+      // border: solid #313d4f 3px;
+      // border-radius: 10px;
       color: #ffffff;
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: center;
+      justify-content: space-around;
+      #convert_btn {
+        cursor: pointer;
+        width: 100px;
+        height: 100px;
+        background-color: #a9c7df;
+        border: solid 5px #ffffff;
+        border-radius: 9999px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 300ms;
+        #conv_text {
+          font-size: 30px;
+          font-weight: 900;
+          color: #313d4f;
+        }
+        &:hover {
+          transition: 300ms;
+          background-color: #ffc02a;
+        }
+      }
     }
   }
 }

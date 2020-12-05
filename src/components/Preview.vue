@@ -1,7 +1,7 @@
 <template>
   <div id="preview_frame">
     <p id="preview" v-text="result_sentence">
-      {{result_sentence}}
+      {{ result_sentence }}
     </p>
   </div>
 </template>
@@ -27,6 +27,8 @@ export default {
   justify-content: center;
   align-items: center;
   #preview {
+    overflow: scroll;
+    scrollbar-color: #26c1c9;
     white-space: pre-wrap;
     font-size: 15px;
     width: 100%;
@@ -34,7 +36,6 @@ export default {
     padding: 10px;
     border: solid 5px #313d4f;
     border-radius: 10px;
-    resize: none;
     color: #ffffff;
     background-color: #171e29;
     transition: 300ms;

@@ -14,6 +14,7 @@
 <script>
 import InputTextArea from "./components/InputTextArea";
 import Preview from "./components/Preview";
+import Converter from "./utils/GrammarModule";
 
 export default {
   name: "App",
@@ -32,8 +33,9 @@ export default {
       // 子コンポーネントから入力された情報を親コンポーネントに格納
       this.$refs.inputtext.transInputValue();
       // ここから文章校正の処理を記述していく
-      
-      this.gramarData = this.targetText;
+      // tinySegmenterで形態素解析をする
+
+      this.gramarData = Converter.ConvertText(this.targetText);
     }
   }
 };
@@ -211,7 +213,7 @@ button {
     justify-content: center;
     #title {
       height: 10%;
-      padding: 10px 0 10px 0;
+      padding: 20px 0 20px 0;
       font-size: 50px;
       font-weight: 900;
       color: #ffffff;

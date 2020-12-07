@@ -199,62 +199,71 @@ button {
   padding: 0;
   appearance: none;
 }
-// // ライトモードの時
-// @media (prefers-color-scheme: light) {
-//   #all_bg_frame {
-//     height: 100vh;
-//     width: 100%;
-//     background-color: #222c3c;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: center;
-//     #title {
-//       height: 10%;
-//       padding: 20px 0 20px 0;
-//       font-size: 50px;
-//       font-weight: 900;
-//       color: #ffffff;
-//       display: flex;
-//       align-items: center;
-//       justify-content: center;
-//     }
-//     #column_frame {
-//       height: 90%;
-//       width: 90%;
-//       padding: 10px;
-//       margin-bottom: 20px;
-//       // border: solid #313d4f 3px;
-//       // border-radius: 10px;
-//       color: #ffffff;
-//       display: flex;
-//       flex-direction: row;
-//       align-items: center;
-//       justify-content: space-around;
-//       #convert_btn {
-//         cursor: pointer;
-//         width: 100px;
-//         height: 100px;
-//         background-color: #a9c7df;
-//         border: solid 5px #ffffff;
-//         border-radius: 9999px;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         transition: 300ms;
-//         #conv_text {
-//           font-size: 30px;
-//           font-weight: 900;
-//           color: #313d4f;
-//         }
-//         &:hover {
-//           transition: 300ms;
-//           background-color: #ffc02a;
-//         }
-//       }
-//     }
-//   }
-// }
+// ライトモードの時
+@media (prefers-color-scheme: light) {
+  #all_bg_frame {
+    height: 100vh;
+    width: 100%;
+    background-color: #222c3c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    #title {
+      height: 10%;
+      padding: 20px 0 20px 0;
+      font-size: 50px;
+      font-weight: 900;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #column_frame {
+      position: relative;
+      height: 90%;
+      width: 90%;
+      padding: 10px;
+      margin-bottom: 20px;
+      // border: solid #313d4f 3px;
+      // border-radius: 10px;
+      color: #ffffff;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      #convert_btn {
+        cursor: pointer;
+        width: 100px;
+        height: 100px;
+        background-color: #a9c7df;
+        border: solid 5px #ffffff;
+        border-radius: 9999px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 300ms;
+        #conv_text {
+          font-size: 30px;
+          font-weight: 900;
+          color: #313d4f;
+        }
+        &:hover {
+          transition: 300ms;
+          background-color: #ffc02a;
+        }
+      }
+      .loading_frame {
+        position: absolute;
+        z-index: 100;
+        border-radius: 10px;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: #ffffff, $alpha: 0.2);
+      }
+    }
+  }
+}
 // ダークモードの時
 @media (prefers-color-scheme: dark) {
   #all_bg_frame {

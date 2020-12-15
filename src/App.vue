@@ -40,7 +40,6 @@ export default {
       // 子コンポーネントから入力された情報を親コンポーネントに格納
       this.$refs.inputtext.transInputValue();
       // ここから文章校正の処理を記述していく
-      // tinySegmenterで形態素解析をする
       this.gramarData = Converter.ConvertText(this.targetText);
       this.loadingFlag = false;
     }

@@ -124,7 +124,7 @@ const GramarDict = {
 
 function ConvertText(targetSegments) {
   let segments = tinySegmenter.segment(targetSegments);
-  console.log(segments);
+  // console.log(segments);
   let GramarText = "";
   let tempText = "";
   let Flag = false;
@@ -152,6 +152,7 @@ function ConvertText(targetSegments) {
       GramarText += tempText;
     }
   }
+  console.log(GramarText);
   return GramarText;
 }
 
